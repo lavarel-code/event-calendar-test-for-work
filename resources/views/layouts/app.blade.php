@@ -34,6 +34,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
+                    <li><a class="nav-link" href="{{ url('/user/edit') }}">Edit User</a></li>
                     @guest
                         <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
