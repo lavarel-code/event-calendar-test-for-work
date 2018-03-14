@@ -12,6 +12,7 @@ namespace App\Providers;
 use App\Event;
 use App\Http\Requests\EventRequest;
 use App\User;
+use Illuminate\Auth\Access\AuthorizationException;
 
 /**
  * Class EventService
@@ -40,12 +41,17 @@ class EventService
 
     /**
      * @param int $id
-     * @param $request
+     * @param EventRequest $request
+     * @param User $user
      * @return Event
+     * @throws AuthorizationException
      */
-    public function update(int $id, EventRequest $request): Event
+    public function update(int $id, EventRequest $request, User $user): Event
     {
         $event = Event::find($id);
+        if (!$user->can('update', $event)) {
+            throw new AuthorizationException();
+        }
         $event->edit(
             $request->post('title'),
             $request->date(),

@@ -85,7 +85,7 @@ class EventManagerController extends \Illuminate\Routing\Controller
      */
     public function update(EventRequest $request, int $id)
     {
-        $this->eventService->update($id, $request);
+        $this->eventService->update($id, $request, $request->user());
         return redirect('/events');
     }
 }
