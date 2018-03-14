@@ -35,6 +35,7 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     <li><a class="nav-link" href="{{ url('/user/edit') }}">Edit User</a></li>
+                    <li><a class="nav-link" href="{{ url('/events') }}">Event</a></li>
                     @guest
                         <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
@@ -71,5 +72,6 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+
 </body>
 </html>
