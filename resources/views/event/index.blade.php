@@ -14,7 +14,7 @@
             @foreach($models as $model)
                 <tr>
                     <td>{{$model->id}}</td>
-                    <td>{{$model->title}}</td>
+                    <td><a href="{{route('events.show', ['id' => $model->id])}}">{{$model->title}}</a></td>
                     <td>{{$model->date}}</td>
                     <td>{{$model->repeat_by}}</td>
                     <td><a href="{{route('events.edit', ['id' => $model->id])}}">Edit</a></td>

@@ -72,9 +72,20 @@ class EventManagerController extends \Illuminate\Routing\Controller
      * @param int $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+    public function show(int $id)
+    {
+        $model = Event::findOrFail($id);
+        return view('event/show', ['model' => $model]);
+    }
+
+    /**
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit(int $id)
     {
-        $model = Event::find($id);
+
+        $model = Event::findOrFail($id);
         return view('event/edit', ['model' => $model]);
     }
 
